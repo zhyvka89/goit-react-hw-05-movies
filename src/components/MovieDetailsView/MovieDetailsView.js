@@ -17,7 +17,10 @@ export default function MovieDetailsView() {
       {movie && (
         <div>
           <div>
-            <img src="" alt="" />
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+              alt=""
+            />
           </div>
           <div>
             <h2>{movie.original_title}</h2>

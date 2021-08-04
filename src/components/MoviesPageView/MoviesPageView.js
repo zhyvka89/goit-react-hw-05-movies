@@ -2,8 +2,10 @@ import { useEffect, useState } from 'react';
 import MovieSearchForm from '../MovieSearchForm';
 import MoviesList from '../MoviesList';
 import * as moviesApi from '../../services/movies-api';
+import { useRouteMatch } from 'react-router-dom';
 
 export default function MoviesPageView() {
+  const { url } = useRouteMatch();
   const [query, setQuery] = useState('');
   const [moviesByQuery, setMoviesByQuery] = useState([]);
 
@@ -12,7 +14,7 @@ export default function MoviesPageView() {
     moviesApi.fetchMoviesByQuery(query).then(({ results }) => {
       setMoviesByQuery(results);
     });
-  });
+  }, [query]);
 
   const onSubmitForm = query => {
     setQuery(query);
@@ -21,7 +23,7 @@ export default function MoviesPageView() {
   return (
     <>
       <MovieSearchForm onSubmitForm={onSubmitForm} />
-      <MoviesList array={moviesByQuery} />
+      <MoviesList array={moviesByQuery} url={url} />
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, useRouteMatch } from 'react-router-dom';
+import { useRouteMatch } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import MoviesList from '../MoviesList';
 
@@ -11,18 +11,5 @@ export default function HomePageView() {
     moviesApi.fetchTrendingMovies().then(({ results }) => setMovies(results));
   }, []);
 
-  return (
-    <>
-      {movies && (
-        // <ul>
-        //   {movies.map(movie => (
-        //     <li key={movie.id}>
-        //       <Link to={`${url}movies/${movie.id}`}>{movie.original_title}</Link>
-        //     </li>
-        //   ))}
-        // </ul>
-        <MoviesList array={movies} />
-      )}
-    </>
-  );
+  return <>{movies && <MoviesList array={movies} url={url} />}</>;
 }

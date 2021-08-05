@@ -23,3 +23,21 @@ export async function fetchMoviesByQuery(query) {
     ? await response.json()
     : Promise.reject(new Error('Not found'));
 }
+
+export async function fetchMovieCast(movieId) {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/credits?api_key=${KEY}`,
+  );
+  return response.ok
+    ? await response.json()
+    : Promise.reject(new Error('Not found'));
+}
+
+export async function fetchMovieReview(movieId) {
+  const response = await fetch(
+    `${BASE_URL}/movie/${movieId}/reviews?api_key=${KEY}`,
+  );
+  return response.ok
+    ? await response.json()
+    : Promise.reject(new Error('Not found'));
+}

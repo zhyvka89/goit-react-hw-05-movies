@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Route, useParams, useRouteMatch } from 'react-router-dom';
+// import { NavLink } from "react-router-dom";
 import * as moviesApi from '../../services/movies-api';
+import Cast from '../Cast/Cast';
+import MovieCard from '../MovieCard/MovieCard';
+import Reviews from '../Reviews/Reviews';
 
 export default function MovieDetailsView() {
+  const { url } = useRouteMatch();
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
   console.log(movieId);
@@ -14,28 +19,25 @@ export default function MovieDetailsView() {
   console.log(movie);
   return (
     <>
-      {movie && (
-        <div>
-          <div>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
-              alt=""
-            />
-          </div>
-          <div>
-            <h2>{movie.original_title}</h2>
-            <p>User Score {movie.vote_average}</p>
-            <h3>Owerview</h3>
-            <p>{movie.overview}</p>
-            <h3>Genres</h3>
-            <ul>
-              {movie.genres.map(el => (
-                <li key={el.id}>{el.name}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      )}
+      {movie && <MovieCard movie={movie} url={url} />}
+
+      {/* <h3>Additional information</h3>
+      <ul>
+        <li>
+          <NavLink to={`${url}/${movie.id}`}>Cast</NavLink>
+        </li>
+        <li>
+          <NavLink to={`${url}/${movie.id}`}>Rewiews</NavLink>
+        </li>
+      </ul> */}
+
+      <Route path="/movies/:movieId/cast">
+        <Cast movieId={movieId} />
+      </Route>
+
+      <Route path="/movies/:movieId/reviews">
+        <Reviews movieId={movieId} />
+      </Route>
     </>
   );
 }

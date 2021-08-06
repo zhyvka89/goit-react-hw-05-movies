@@ -6,7 +6,6 @@ import MoviesList from '../MoviesList';
 export default function HomePageView() {
   const { url } = useRouteMatch();
   const location = useLocation();
-  console.log(location);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {

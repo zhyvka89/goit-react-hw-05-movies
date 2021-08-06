@@ -1,0 +1,16 @@
+/* .list {
+  list-style: none;
+} */
+
+.item {
+  font-size: large;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 5px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 18px;
+}

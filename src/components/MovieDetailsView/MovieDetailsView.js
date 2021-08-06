@@ -6,11 +6,10 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
-// import { NavLink } from "react-router-dom";
+
 import * as moviesApi from '../../services/movies-api';
+import Button from '../Button/Button';
 import MovieCard from '../MovieCard/MovieCard';
-// import Cast from '../Cast/Cast';
-// import Reviews from '../Reviews/Reviews';
 
 const Cast = lazy(() => import('../Cast/Cast'));
 const Reviews = lazy(() => import('../Reviews/Reviews'));
@@ -20,7 +19,6 @@ export default function MovieDetailsView() {
   const { movieId } = useParams();
   const location = useLocation();
   const history = useHistory();
-  console.log(location);
   const [movie, setMovie] = useState(null);
 
   useEffect(() => {
@@ -33,9 +31,8 @@ export default function MovieDetailsView() {
 
   return (
     <>
-      <button type="button" onClick={handleGoBackBtn}>
-        Go Back
-      </button>
+      <Button title="Go Back" onBtnClick={handleGoBackBtn} />
+
       {movie && <MovieCard movie={movie} url={url} />}
 
       <Suspense>

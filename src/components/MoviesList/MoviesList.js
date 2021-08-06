@@ -1,31 +1,46 @@
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styles from './MoviesList.module.css';
 
 export default function MoviesList({ array, url, location }) {
   return (
-    <ul>
-      {array.map(movie => (
-        <li key={movie.id}>
+    <ol className={styles.list}>
+      {array.map(({ id, original_title }) => (
+        <li className={styles.item} key={id}>
           {url === '/' ? (
             <Link
               to={{
-                pathname: `${url}movies/${movie.id}`,
+                pathname: `${url}movies/${id}`,
                 state: { from: location },
               }}
+              className={styles.link}
             >
-              {movie.original_title}
+              {original_title}
             </Link>
           ) : (
             <Link
               to={{
-                pathname: `${url}/${movie.id}`,
+                pathname: `${url}/${id}`,
                 state: { from: location },
               }}
+              className={styles.link}
             >
-              {movie.original_title}
+              {original_title}
             </Link>
           )}
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
+
+MoviesList.propTypes = {
+  url: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
+  array: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      original_title: PropTypes.string.isRequired,
+    }),
+  ),
+};

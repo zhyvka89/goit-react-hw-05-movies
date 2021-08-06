@@ -1,4 +1,7 @@
 import { useState } from 'react';
+import PropTypes from 'prop-types';
+import Button from '../Button/Button';
+import styles from './MovieSearchForm.module.css';
 
 export default function MovieSearchForm({ onSubmitForm }) {
   const [query, setQuery] = useState('');
@@ -13,8 +16,9 @@ export default function MovieSearchForm({ onSubmitForm }) {
   };
 
   return (
-    <form onSubmit={handleSubmitForm}>
+    <form className={styles.form} onSubmit={handleSubmitForm}>
       <input
+        className={styles.input}
         type="text"
         autoComplete="off"
         placeholder="Search Movies"
@@ -22,7 +26,11 @@ export default function MovieSearchForm({ onSubmitForm }) {
         autoFocus
         onChange={handleQueryChange}
       />
-      <button type="submit">Search</button>
+      <Button type="submit" title="Search" />
     </form>
   );
 }
+
+MovieSearchForm.propType = {
+  onSubmitForm: PropTypes.func.isRequired,
+};

@@ -7,7 +7,6 @@ import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 export default function MoviesPageView() {
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
   const { url } = useRouteMatch();
   const [query, setQuery] = useState('');
   const [moviesByQuery, setMoviesByQuery] = useState([]);
@@ -19,7 +18,7 @@ export default function MoviesPageView() {
     moviesApi.fetchMoviesByQuery(query).then(({ results }) => {
       setMoviesByQuery(results);
     });
-  }, [query, location.search]);
+  }, [query]);
 
   const onSubmitForm = query => {
     setQuery(query);

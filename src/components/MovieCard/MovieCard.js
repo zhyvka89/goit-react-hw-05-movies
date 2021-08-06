@@ -1,24 +1,29 @@
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import styles from './MovieCard.module.css';
 
 export default function MovieCard({ movie, url }) {
+  const { backdrop_path, original_title, vote_average, overview, genres } =
+    movie;
+
   return (
     <>
-      <div>
-        <div>
+      <div className={styles.card}>
+        <div className={styles.thumb}>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${movie.backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
             alt="movie"
           />
         </div>
         <div>
-          <h2>{movie.original_title}</h2>
-          <p>User Score {movie.vote_average}</p>
+          <h2>{original_title}</h2>
+          <p>User Score {vote_average}</p>
           <h3>Owerview</h3>
-          <p>{movie.overview}</p>
+          <p>{overview}</p>
           <h3>Genres</h3>
           <ul>
-            {movie.genres.map(el => (
-              <li key={el.id}>{el.name}</li>
+            {genres.map(({ id, name }) => (
+              <li key={id}>{name}</li>
             ))}
           </ul>
         </div>
@@ -36,3 +41,8 @@ export default function MovieCard({ movie, url }) {
     </>
   );
 }
+
+MovieCard.propTypes = {
+  movie: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
+};

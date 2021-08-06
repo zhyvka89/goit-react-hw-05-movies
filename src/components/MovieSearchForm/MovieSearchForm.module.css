@@ -1,0 +1,11 @@
+.form {
+  padding-left: 20px;
+}
+
+.input {
+  width: 400px;
+
+  padding: 6px;
+  outline: none;
+  color: #2a363b;
+}

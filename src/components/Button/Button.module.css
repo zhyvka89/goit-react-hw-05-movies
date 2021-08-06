@@ -1,0 +1,9 @@
+.button {
+  padding: 6px;
+  margin-left: 20px;
+  color: #2a363b;
+}
+
+.button:hover {
+  font-weight: 500;
+}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as moviesApi from '../../services/movies-api';
+import styles from './Reviews.module.css';
 
 export default function Reviews({ movieId }) {
   const [review, setReview] = useState([]);
@@ -12,14 +13,14 @@ export default function Reviews({ movieId }) {
   }, [movieId]);
 
   return (
-    <ul>
+    <ol className={styles.list}>
       {review.map(({ id, author, content }) => (
         <li key={id}>
-          <h4>Author: {author}</h4>
+          <h4 className={styles.title}>Author: {author}</h4>
           <p>{content}</p>
         </li>
       ))}
-    </ul>
+    </ol>
   );
 }
 

@@ -3,6 +3,46 @@
   margin-top: 15px;
 }
 
-/* .thumb {
-  width: 360px;
-} */
+.thumb {
+  padding: 20px;
+}
+
+.info {
+  margin-left: 5px;
+  color: #2a363b;
+  line-height: 1.5;
+}
+
+.title {
+  margin: 0;
+}
+
+.score {
+  font-weight: 700;
+}
+
+.add {
+  color: #2a363b;
+  margin-top: 10px;
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+.navList {
+  display: flex;
+  list-style: none;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 6px;
+  font-weight: 500;
+  color: #2a363b;
+  font-size: 18px;
+}
+
+.activeLink {
+  composes: link;
+  color: #2196f3;
+}

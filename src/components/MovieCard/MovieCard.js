@@ -1,6 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
+import falsePic from '../../images/false.png';
 
 export default function MovieCard({ movie, url }) {
   const { backdrop_path, original_title, vote_average, overview, genres } =
@@ -10,17 +11,23 @@ export default function MovieCard({ movie, url }) {
     <>
       <div className={styles.card}>
         <div className={styles.thumb}>
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
-            alt="movie"
-          />
+          {backdrop_path ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
+              alt="movie"
+            />
+          ) : (
+            <img src={falsePic} alt="movie" />
+          )}
         </div>
-        <div>
-          <h2>{original_title}</h2>
-          <p>User Score {vote_average}</p>
-          <h3>Owerview</h3>
+        <div className={styles.info}>
+          <h2 className={styles.title}>{original_title}</h2>
+          <p>
+            User Score <span className={styles.score}>{vote_average}</span>
+          </p>
+          <h3 className={styles.title}>Owerview</h3>
           <p>{overview}</p>
-          <h3>Genres</h3>
+          <h3 className={styles.title}>Genres</h3>
           <ul>
             {genres.map(({ id, name }) => (
               <li key={id}>{name}</li>
@@ -29,13 +36,25 @@ export default function MovieCard({ movie, url }) {
         </div>
       </div>
       <hr />
-      <h3>Additional information</h3>
-      <ul>
+      <h3 className={styles.add}>Additional information</h3>
+      <ul className={styles.navList}>
         <li>
-          <NavLink to={`${url}/cast`}>Cast</NavLink>
+          <NavLink
+            className={styles.link}
+            activeClassName={styles.activeLink}
+            to={`${url}/cast`}
+          >
+            Cast
+          </NavLink>
         </li>
         <li>
-          <NavLink to={`${url}/reviews`}>Rewiews</NavLink>
+          <NavLink
+            className={styles.link}
+            activeClassName={styles.activeLink}
+            to={`${url}/reviews`}
+          >
+            Rewiews
+          </NavLink>
         </li>
       </ul>
     </>

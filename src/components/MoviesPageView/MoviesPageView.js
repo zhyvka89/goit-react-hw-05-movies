@@ -13,12 +13,17 @@ export default function MoviesPageView() {
 
   useEffect(() => {
     if (query === '') return;
-    // const savedQuery = new URLSearchParams(location.search).get('query') ?? query;
-    // console.log(savedQuery);
     moviesApi.fetchMoviesByQuery(query).then(({ results }) => {
       setMoviesByQuery(results);
     });
   }, [query]);
+
+  useEffect(() => {
+    const savedQuery = new URLSearchParams(location.search).get('query');
+    moviesApi.fetchMoviesByQuery(savedQuery).then(({ results }) => {
+      setMoviesByQuery(results);
+    });
+  }, []);
 
   const onSubmitForm = query => {
     setQuery(query);

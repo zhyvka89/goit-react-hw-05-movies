@@ -13,6 +13,7 @@ export default function MoviesPageView() {
 
   useEffect(() => {
     if (query === '') return;
+
     moviesApi.fetchMoviesByQuery(query).then(({ results }) => {
       setMoviesByQuery(results);
     });
@@ -20,6 +21,9 @@ export default function MoviesPageView() {
 
   useEffect(() => {
     const savedQuery = new URLSearchParams(location.search).get('query');
+
+    if (savedQuery === null) return;
+
     moviesApi.fetchMoviesByQuery(savedQuery).then(({ results }) => {
       setMoviesByQuery(results);
     });

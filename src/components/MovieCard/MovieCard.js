@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 import falsePic from '../../images/false.png';
 
-export default function MovieCard({ movie, url }) {
+export default function MovieCard({ movie, url, location }) {
   const { backdrop_path, original_title, vote_average, overview, genres } =
     movie;
 
@@ -42,7 +42,10 @@ export default function MovieCard({ movie, url }) {
           <NavLink
             className={styles.link}
             activeClassName={styles.activeLink}
-            to={`${url}/cast`}
+            to={{
+              pathname: `${url}/cast`,
+              state: { from: location?.state?.from },
+            }}
           >
             Cast
           </NavLink>
@@ -51,7 +54,10 @@ export default function MovieCard({ movie, url }) {
           <NavLink
             className={styles.link}
             activeClassName={styles.activeLink}
-            to={`${url}/reviews`}
+            to={{
+              pathname: `${url}/reviews`,
+              state: { from: location?.state?.from },
+            }}
           >
             Rewiews
           </NavLink>

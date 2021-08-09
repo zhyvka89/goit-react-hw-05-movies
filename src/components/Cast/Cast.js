@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import * as moviesApi from '../../services/movies-api';
 import styles from './Cast.module.css';
 import falsePic from '../../images/false.png';
+import { useLocation } from 'react-router-dom';
 
 export default function Cast({ movieId }) {
+  const location = useLocation();
+  console.log(location);
   const [cast, setCast] = useState([]);
 
   useEffect(() => {

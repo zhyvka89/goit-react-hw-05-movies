@@ -33,7 +33,7 @@ export default function MovieDetailsView() {
     <>
       <Button title="Go Back" onBtnClick={handleGoBackBtn} />
 
-      {movie && <MovieCard movie={movie} url={url} />}
+      {movie && <MovieCard movie={movie} url={url} location={location} />}
 
       <Suspense>
         <Route path="/movies/:movieId/cast">

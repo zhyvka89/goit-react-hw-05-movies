@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import MovieSearchForm from '../MovieSearchForm';
-import MoviesList from '../MoviesList';
+import MovieSearchForm from '../../components/MovieSearchForm';
+import MoviesList from '../../components/MoviesList';
 import * as moviesApi from '../../services/movies-api';
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 
@@ -27,7 +27,7 @@ export default function MoviesPageView() {
     moviesApi.fetchMoviesByQuery(savedQuery).then(({ results }) => {
       setMoviesByQuery(results);
     });
-  }, []);
+  }, [location.search]);
 
   const onSubmitForm = query => {
     setQuery(query);

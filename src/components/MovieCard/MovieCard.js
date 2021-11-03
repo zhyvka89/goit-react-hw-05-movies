@@ -1,69 +1,78 @@
 import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
-import falsePic from '../../images/false.png';
 
 export default function MovieCard({ movie, url, location }) {
-  const { backdrop_path, original_title, vote_average, overview, genres } =
-    movie;
+  const {
+    backdrop_path,
+    original_title,
+    vote_average,
+    overview,
+    genres,
+    release_date,
+    poster_path,
+  } = movie;
 
   return (
-    <>
-      <div className={styles.card}>
-        <div className={styles.thumb}>
-          {backdrop_path ? (
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
-              alt="movie"
-            />
-          ) : (
-            <img src={falsePic} alt="movie" />
-          )}
-        </div>
-        <div className={styles.info}>
-          <h2 className={styles.title}>{original_title}</h2>
-          <p>
-            User Score <span className={styles.score}>{vote_average}</span>
-          </p>
-          <h3 className={styles.title}>Owerview</h3>
-          <p>{overview}</p>
-          <h3 className={styles.title}>Genres</h3>
-          <ul>
+    <div className={`${styles.movieCard} ${styles.bright}`}>
+      <div className={styles.infoSection}>
+        <div className={styles.movieHeader}>
+          <img
+            className={styles.image}
+            src={
+              backdrop_path
+                ? `https://image.tmdb.org/t/p/w500/${backdrop_path}`
+                : `https://image.tmdb.org/t/p/w500/${poster_path}`
+            }
+            alt="movie"
+          />
+          <h1 className={styles.titleOne}>{original_title}</h1>
+          <h4 className={styles.titleFour}>{release_date}</h4>
+          <span
+            className={vote_average > 5.5 ? styles.highVote : styles.lowVote}
+          >
+            {vote_average}
+          </span>
+          <ul className={styles.type}>
             {genres.map(({ id, name }) => (
-              <li key={id}>{name}</li>
+              <li className={styles.typeItem} key={id}>
+                {name}
+              </li>
             ))}
           </ul>
         </div>
+        <div className={styles.movieDesc}>
+          <p className={styles.text}>{overview}</p>
+        </div>
+        <ul className={styles.navList}>
+          <li>
+            <NavLink
+              className={styles.link}
+              activeClassName={styles.activeLink}
+              to={{
+                pathname: `${url}/cast`,
+                state: { from: location?.state?.from },
+              }}
+            >
+              Cast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              className={styles.link}
+              activeClassName={styles.activeLink}
+              to={{
+                pathname: `${url}/reviews`,
+                state: { from: location?.state?.from },
+              }}
+            >
+              Rewiews
+            </NavLink>
+          </li>
+        </ul>
       </div>
-      <hr />
-      <h3 className={styles.add}>Additional information</h3>
-      <ul className={styles.navList}>
-        <li>
-          <NavLink
-            className={styles.link}
-            activeClassName={styles.activeLink}
-            to={{
-              pathname: `${url}/cast`,
-              state: { from: location?.state?.from },
-            }}
-          >
-            Cast
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            className={styles.link}
-            activeClassName={styles.activeLink}
-            to={{
-              pathname: `${url}/reviews`,
-              state: { from: location?.state?.from },
-            }}
-          >
-            Rewiews
-          </NavLink>
-        </li>
-      </ul>
-    </>
+      <div className={`${styles.blurBack} ${styles.brightBack}`}></div>
+    </div>
   );
 }
 

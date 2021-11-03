@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import Container from '../Container';
 import styles from './Navigation.module.css';
 
 export default function Navigation() {
   return (
-    <>
+    <Container>
       <nav>
         <NavLink
           exact
@@ -18,10 +19,9 @@ export default function Navigation() {
           className={styles.link}
           activeClassName={styles.activeLink}
         >
-          Movies
+          Search
         </NavLink>
       </nav>
-      <hr />
-    </>
+    </Container>
   );
 }

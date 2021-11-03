@@ -23,14 +23,14 @@ export default function Cast({ movieId }) {
               <img
                 src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
                 alt=""
-                width="150"
-                height="200"
               />
             ) : (
               <img src={falsePic} alt="" width="150" height="200" />
             )}
-            <p className={styles.name}>{name}</p>
-            <p className={styles.text}>{character}</p>
+            <div className={styles.overlay}>
+              <p className={styles.name}>{name}</p>
+              <p className={styles.text}>{character}</p>
+            </div>
           </div>
         </li>
       ))}

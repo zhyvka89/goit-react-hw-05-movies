@@ -15,7 +15,7 @@ export default function Reviews({ movieId }) {
   return (
     <ol className={styles.list}>
       {review.map(({ id, author, content }) => (
-        <li key={id}>
+        <li className={styles.item} key={id}>
           <h4 className={styles.title}>Author: {author}</h4>
           <p>{content}</p>
         </li>

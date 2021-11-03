@@ -8,11 +8,12 @@ import {
 } from 'react-router-dom';
 
 import * as moviesApi from '../../services/movies-api';
-import Button from '../Button/Button';
-import MovieCard from '../MovieCard/MovieCard';
+import Button from '../../components/Button/Button';
+// import MovieCard from '../../components/MovieCard/MovieCard';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
-const Cast = lazy(() => import('../Cast/Cast'));
-const Reviews = lazy(() => import('../Reviews/Reviews'));
+const Cast = lazy(() => import('../../components/Cast/Cast'));
+const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
 
 export default function MovieDetailsView() {
   const { url } = useRouteMatch();

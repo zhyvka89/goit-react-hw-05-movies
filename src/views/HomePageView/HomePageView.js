@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useRouteMatch } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
-import MoviesList from '../MoviesList';
+import MoviesList from '../../components/MoviesList';
+
+import styles from './HomePageView.module.css';
 
 export default function HomePageView() {
   const { url } = useRouteMatch();
@@ -13,6 +15,8 @@ export default function HomePageView() {
   }, []);
 
   return (
-    <>{movies && <MoviesList array={movies} url={url} location={location} />}</>
+    <section className={styles.home}>
+      {movies && <MoviesList array={movies} url={url} location={location} />}
+    </section>
   );
 }

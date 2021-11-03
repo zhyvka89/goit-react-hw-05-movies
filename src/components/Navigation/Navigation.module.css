@@ -4,11 +4,11 @@
   margin-left: 8px;
   padding: 12px;
   font-weight: 500;
-  color: #2a363b;
+  color: wheat;
   font-size: 22px;
 }
 
 .activeLink {
   composes: link;
-  color: #2196f3;
+  color: crimson;
 }

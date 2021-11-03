@@ -1,8 +1,19 @@
 .list {
-  color: #2a363b;
   line-height: 1.5;
+  width: 1000px;
+  text-align: center;
+  color: wheat;
+  margin: -20px auto;
+}
+
+.item {
+  border: 1px solid wheat;
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
 }
 
 .title {
-  margin-left: 10px;
+  color: rgb(186, 143, 241);
+  font-size: large;
 }

@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import * as moviesApi from '../../services/movies-api';
-import styles from './Cast.module.css';
-import falsePic from '../../images/false.png';
 import { useLocation } from 'react-router-dom';
+
+import * as moviesApi from '../../services/movies-api';
+
+import styles from './Cast.module.css';
 
 export default function Cast({ movieId }) {
   const location = useLocation();
@@ -16,24 +17,25 @@ export default function Cast({ movieId }) {
 
   return (
     <ul className={styles.list}>
-      {cast.map(({ id, name, profile_path, character }) => (
-        <li className={styles.item} key={id}>
-          <div className={styles.card}>
-            {profile_path ? (
+      {cast.map(({ id, name, profile_path, character }) => {
+        if (!profile_path) {
+          return null;
+        }
+        return (
+          <li className={styles.item} key={id}>
+            <div className={styles.card}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${profile_path}`}
-                alt=""
+                alt="cast"
               />
-            ) : (
-              <img src={falsePic} alt="" width="150" height="200" />
-            )}
-            <div className={styles.overlay}>
-              <p className={styles.name}>{name}</p>
-              <p className={styles.text}>{character}</p>
+              <div className={styles.overlay}>
+                <p className={styles.name}>{name}</p>
+                <p className={styles.text}>{character}</p>
+              </div>
             </div>
-          </div>
-        </li>
-      ))}
+          </li>
+        );
+      })}
     </ul>
   );
 }

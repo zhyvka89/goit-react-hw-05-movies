@@ -9,8 +9,9 @@ import {
 
 import * as moviesApi from '../../services/movies-api';
 import Button from '../../components/Button/Button';
-// import MovieCard from '../../components/MovieCard/MovieCard';
 import MovieCard from '../../components/MovieCard/MovieCard';
+
+import styles from './MovieDetailsView.module.css';
 
 const Cast = lazy(() => import('../../components/Cast/Cast'));
 const Reviews = lazy(() => import('../../components/Reviews/Reviews'));
@@ -31,7 +32,7 @@ export default function MovieDetailsView() {
   };
 
   return (
-    <>
+    <section className={styles.movie}>
       <Button title="Go Back" onBtnClick={handleGoBackBtn} />
 
       {movie && <MovieCard movie={movie} url={url} location={location} />}
@@ -45,6 +46,6 @@ export default function MovieDetailsView() {
           <Reviews movieId={movieId} />
         </Route>
       </Suspense>
-    </>
+    </section>
   );
 }

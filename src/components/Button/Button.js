@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import styles from './Button.module.css';
+import styles from './Button.module.scss';
 
 export default function Button({ title, type = 'button', onBtnClick }) {
   return (

@@ -11,7 +11,7 @@ import * as moviesApi from '../../services/movies-api';
 import Button from '../../components/Button/Button';
 import MovieCard from '../../components/MovieCard/MovieCard';
 
-import styles from './MovieDetailsView.module.css';
+import styles from './MovieDetailsView.module.scss';
 
 const Cast = lazy(() => import('../../components/Cast/Cast'));
 const Reviews = lazy(() => import('../../components/Reviews/Reviews'));

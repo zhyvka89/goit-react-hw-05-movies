@@ -3,7 +3,7 @@ import { useLocation, useRouteMatch } from 'react-router-dom';
 import * as moviesApi from '../../services/movies-api';
 import MoviesList from '../../components/MoviesList';
 
-import styles from './HomePageView.module.css';
+import styles from './HomePageView.module.scss';
 
 export default function HomePageView() {
   const { url } = useRouteMatch();

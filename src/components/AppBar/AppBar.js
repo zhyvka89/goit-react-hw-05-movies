@@ -1,5 +1,5 @@
 import Navigation from '../Navigation';
-import styles from './AppBar.module.css';
+import styles from './AppBar.module.scss';
 
 export default function AppBar() {
   return (

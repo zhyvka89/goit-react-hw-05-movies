@@ -1,7 +1,9 @@
+@import '../../sass/main.scss';
+
 header {
   position: fixed;
   z-index: 100;
   width: 100%;
   padding: 10px 0;
-  background-color: rgba(1, 35, 61, 0.6);
+  background-color: $header-background;
 }

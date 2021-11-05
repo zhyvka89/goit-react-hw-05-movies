@@ -1,0 +1,15 @@
+@import '../../sass/main.scss';
+
+.button {
+  padding: 6px;
+  margin-left: 20px;
+  background-color: transparent;
+  color: $secondary-color;
+  font-weight: 500;
+  font-size: x-large;
+  border: none;
+
+  &:hover {
+    box-shadow: $box-shadow-card;
+  }
+}

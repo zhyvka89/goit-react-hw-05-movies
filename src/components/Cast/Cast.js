@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 
 import * as moviesApi from '../../services/movies-api';
 
-import styles from './Cast.module.css';
+import styles from './Cast.module.scss';
 
 export default function Cast({ movieId }) {
   const location = useLocation();

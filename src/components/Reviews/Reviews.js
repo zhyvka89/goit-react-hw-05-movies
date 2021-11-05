@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import * as moviesApi from '../../services/movies-api';
-import styles from './Reviews.module.css';
+import styles from './Reviews.module.scss';
 
 export default function Reviews({ movieId }) {
   const [review, setReview] = useState([]);

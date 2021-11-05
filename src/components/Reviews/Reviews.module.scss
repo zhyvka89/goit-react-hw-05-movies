@@ -1,19 +1,21 @@
+@import '../../sass/main.scss';
+
 .list {
   line-height: 1.5;
   width: 1000px;
   text-align: center;
-  color: wheat;
+  color: $secondary-color;
   margin: -20px auto;
 }
 
 .item {
-  border: 1px solid wheat;
+  border: 1px solid $secondary-color;
   border-radius: 10px;
   margin: 20px;
   padding: 10px;
 }
 
 .title {
-  color: rgb(186, 143, 241);
+  color: $review-title;
   font-size: large;
 }

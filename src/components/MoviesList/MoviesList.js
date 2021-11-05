@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import styles from './MoviesList.module.css';
+import styles from './MoviesList.module.scss';
 
 export default function MoviesList({ array, url, location }) {
   return (

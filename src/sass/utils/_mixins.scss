@@ -1,0 +1,24 @@
+@mixin text-size($font-weight, $font-size, $line-height, $letter-spacing) {
+  font-weight: $font-weight;
+  font-size: $font-size;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == 'mobile' {
+    @media screen and (min-width: $mobile) {
+      @content;
+    }
+  }
+  @if $breakpoint == 'tablet' {
+    @media screen and (min-width: $tablet) {
+      @content;
+    }
+  }
+  @if $breakpoint == 'laptop' {
+    @media screen and (min-width: $desktop) {
+      @content;
+    }
+  }
+}

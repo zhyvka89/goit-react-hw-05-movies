@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
-import styles from './MovieSearchForm.module.css';
+import styles from './MovieSearchForm.module.scss';
 
 export default function MovieSearchForm({ onSubmitForm }) {
   const [query, setQuery] = useState('');

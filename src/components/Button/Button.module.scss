@@ -2,14 +2,19 @@
 
 .button {
   padding: 6px;
-  margin-left: 20px;
+  margin-top: 10px;
   background-color: transparent;
   color: $secondary-color;
   font-weight: 500;
-  font-size: x-large;
+  font-size: large;
   border: none;
 
   &:hover {
     box-shadow: $box-shadow-card;
+  }
+
+  @include respond('desktop') {
+    margin-left: 0 20px;
+    font-size: x-large;
   }
 }

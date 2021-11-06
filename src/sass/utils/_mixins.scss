@@ -7,7 +7,7 @@
 
 @mixin respond($breakpoint) {
   @if $breakpoint == 'mobile' {
-    @media screen and (min-width: $mobile) {
+    @media screen and (max-width: $tablet) {
       @content;
     }
   }
@@ -16,7 +16,7 @@
       @content;
     }
   }
-  @if $breakpoint == 'laptop' {
+  @if $breakpoint == 'desktop' {
     @media screen and (min-width: $desktop) {
       @content;
     }

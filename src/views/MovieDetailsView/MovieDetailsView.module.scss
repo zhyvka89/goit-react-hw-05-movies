@@ -1,3 +1,10 @@
+@import '../../sass/main.scss';
+
 .movie {
   padding-top: 100px;
+  text-align: center;
+
+  @include respond('tablet') {
+    text-align: start;
+  }
 }

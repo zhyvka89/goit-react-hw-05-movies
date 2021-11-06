@@ -4,6 +4,8 @@ import MoviesList from '../../components/MoviesList';
 import * as moviesApi from '../../services/movies-api';
 import { useHistory, useLocation, useRouteMatch } from 'react-router-dom';
 
+import styles from './MoviesPageView.module.scss';
+
 export default function MoviesPageView() {
   const history = useHistory();
   const location = useLocation();
@@ -38,9 +40,9 @@ export default function MoviesPageView() {
   };
 
   return (
-    <>
+    <section className={styles.moviePage}>
       <MovieSearchForm onSubmitForm={onSubmitForm} />
       <MoviesList array={moviesByQuery} url={url} location={location} />
-    </>
+    </section>
   );
 }

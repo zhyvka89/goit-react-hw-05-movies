@@ -14,6 +14,13 @@
     transform: scale(1.02);
     transition: all 0.4s;
   }
+
+  @include respond('mobile') {
+    width: 95%;
+    margin: 20px auto;
+    min-height: 350px;
+    height: auto;
+  }
 }
 
 .infoSection {
@@ -23,12 +30,30 @@
   background-blend-mode: multiply;
   z-index: 2;
   border-radius: 10px;
+
+  @include respond('mobile') {
+    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
+    display: inline-grid;
+  }
+
+  @include respond('tablet') {
+    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
+  }
 }
 
 .movieHeader {
   position: relative;
   padding: 25px;
   height: 50%;
+
+  @include respond('mobile') {
+    width: 100%;
+    margin-top: 85px;
+  }
+
+  @include respond('tablet') {
+    width: 60%;
+  }
 }
 
 .titleOne {
@@ -82,6 +107,14 @@
 .movieDesc {
   padding: 25px;
   height: 40%;
+
+  @include respond('mobile') {
+    width: 100%;
+  }
+
+  @include respond('tablet') {
+    width: 50%;
+  }
 }
 
 .text {
@@ -96,52 +129,14 @@
   right: 0;
   background-size: cover;
   border-radius: 11px;
-}
 
-@media screen and (min-width: 768px) {
-  .movieHeader {
-    width: 60%;
-  }
-
-  .movieDesc {
-    width: 50%;
-  }
-
-  .infoSection {
-    background: linear-gradient(to right, #0d0d0c 50%, transparent 100%);
-  }
-
-  .blurBack {
-    width: 80%;
-    background-position: -100% 10% !important;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .movieCard {
-    width: 95%;
-    margin: 70px auto;
-    min-height: 350px;
-    height: auto;
-  }
-
-  .blurBack {
+  @include respond('mobile') {
     width: 100%;
     background-position: 50% 50% !important;
   }
 
-  .movieHeader {
-    width: 100%;
-    margin-top: 85px;
-  }
-
-  .movieDesc {
-    width: 100%;
-  }
-
-  .infoSection {
-    background: linear-gradient(to top, rgb(20, 20, 19) 50%, transparent 100%);
-    display: inline-grid;
+  @include respond('tablet') {
+    width: 80%;
   }
 }
 
